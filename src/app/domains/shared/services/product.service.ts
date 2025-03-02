@@ -13,7 +13,7 @@ export class ProductService {
   constructor() { }
 
   getProducts(){
-    this.http.get<Product[]>('https://api.escuelajs.co/api/v1/products').pipe(
+    /* this.http.get<Product[]>('https://api.escuelajs.co/api/v1/products').pipe(
       map(products =>
         products.map(product => ({
           ...product,
@@ -24,7 +24,7 @@ export class ProductService {
       )
     ).subscribe(productos => {
       console.log(JSON.stringify(productos, null, 2));
-    });
+    }); */
     return this.http.get<Product[]>('https://api.escuelajs.co/api/v1/products').pipe(
       map(products =>
         products.map(product => ({
