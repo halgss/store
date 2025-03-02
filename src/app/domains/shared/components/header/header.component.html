@@ -40,7 +40,7 @@
       </div>
       <div class="flex items-center">
         <button class="p-2 border rouded relative" (click)="toogleSideMenu()">
-          <div class="absolute -top-2 -left-2 rounded h-5 w-5 bg-black text-white text-xs">{{cart.length}}</div>
+          <div class="absolute -top-2 -left-2 rounded h-5 w-5 bg-black text-white text-xs">{{cart().length}}</div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -65,7 +65,7 @@
   class="fixed border-l-4 top-0 right-0 bg-red z-40 w-72 h-screen p-4 overflow-y-auto transition-transform bg-white" [class.translate-x-full]="hideSideMenu()">
   <div class="flex justify-between items-center">
     <p class="text-xl content-center">My Cart
-      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-0.5 py-0.5 rounded-sm dark:bg-blue-200 dark:text-blue-800 ml-3">{{cart.length}}</span>
+      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-0.5 py-0.5 rounded-sm dark:bg-blue-200 dark:text-blue-800 ml-3">{{cart().length}}</span>
     </p>     
     <button (click)="toogleSideMenu()">
       <svg
@@ -86,7 +86,7 @@
   </div>
   <div class="pt-4 flex flex-col">
     
-      @for (product of cart; track $index) {  
+      @for (product of cart(); track $index) {  
         <div class="flex justify-between items-center space-y-2">   
           <div class="flex space-x-2 items-center">
             <img class="w-6 h-6" [src]="product.img" [alt]="product.title"> 
@@ -97,6 +97,6 @@
       }  
     
     
-    <div class="text-lg text-blue-950">Total de su compra {{ Gtotal() | currency:'MXN':'symbol':'1.2-2':'es-MX' }}</div> 
+    <div class="text-lg text-blue-950">Total de su compra {{ Gtotal() | currency:'MXN':'symbol':'1.2-2':'es-MX'  }}</div> 
   </div>
 </div>
