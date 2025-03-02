@@ -3,6 +3,6 @@ export interface Product {
   title: string;
   price: number;
   detalle: string;
-  img: string;
+  images: string[];
   creationAt: string
 }
