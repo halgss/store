@@ -9,9 +9,6 @@ import { Product } from '../../../shared/models/product.model';
   styleUrl: './product.component.css'
 })
 export class ProductComponent {
-  /* readonly img = input<string>('');
-  readonly price = input<number>(0);
-  readonly title = input.required<string>(); */
   @Input({required: true}) product!: Product;
 
   @Output() addToCart = new EventEmitter();
