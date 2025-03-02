@@ -1,20 +1,23 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Input, Output, input } from '@angular/core';
+import { Product } from '../../../shared/models/product.model';
 
 @Component({
   selector: 'app-product',
-  imports: [],
+  imports: [CommonModule],    
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
 export class ProductComponent {
-  @Input() img: string = '';
-  @Input() price: number = 0;
-  @Input({required:true}) title: string = '';
+  /* readonly img = input<string>('');
+  readonly price = input<number>(0);
+  readonly title = input.required<string>(); */
+  @Input({required: true}) product!: Product;
 
   @Output() addToCart = new EventEmitter();
 
   addToCartHandler() {
     console.log('click form child');
-    this.addToCart.emit('hola este es un mensaje desde el hijo ' + this.title);
+    this.addToCart.emit('hola este es un mensaje desde el hijo ' + this.product.title);
     }
 }
