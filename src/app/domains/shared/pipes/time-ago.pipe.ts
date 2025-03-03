@@ -1,12 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { formatDistance } from 'date-fns';
+/* import { formatDistance } from 'date-fns'; */
 
 @Pipe({
   name: 'timeAgo'
 })
 export class TimeAgoPipe implements PipeTransform {
 
-/*   transform(value: Date | string): string {
+  transform(value: Date | string): string {
 
     if (!value) return 'Fecha no válida';
 
@@ -34,14 +34,14 @@ export class TimeAgoPipe implements PipeTransform {
         return `hace ${counter} ${i}${counter === 1 ? '' : 's'}`;
     }
     return value.toString();
-  } */
+  } 
 
-  transform(value: string): string {
+  /* transform(value: string): string {
     if (!value) return 'Fecha no válida'
     const date = new Date(value);
     const today = new Date();
 
     return formatDistance(today, date);
-  }
+  } */
 
 }
