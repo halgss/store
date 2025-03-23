@@ -3,11 +3,14 @@ import { Product } from '../../models/product.model';
 import { CommonModule, registerLocaleData } from '@angular/common';
 import localeEsMx from '@angular/common/locales/es-MX';
 import { CartService } from '../../services/cart.service';
+import { Router } from 'express';
+import { RouterLinkWithHref, RouterLinkActive } from '@angular/router';
+
 
 registerLocaleData(localeEsMx); // 🔹 Registra el formato mexicano
 @Component({
   selector: 'app-header',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLinkWithHref, RouterLinkActive],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
