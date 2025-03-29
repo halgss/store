@@ -13,18 +13,6 @@ export class ProductService {
   constructor() { }
 
   getProducts(){
-    /* this.http.get<Product[]>('https://api.escuelajs.co/api/v1/products').pipe(
-      map(products =>
-        products.map(product => ({
-          ...product,
-          images: product.images.map(() =>
-            'https://picsum.photos/640/640?r=' + Math.random()
-          )
-        }))
-      )
-    ).subscribe(productos => {
-      console.log(JSON.stringify(productos, null, 2));
-    }); */
     return this.http.get<Product[]>('https://api.escuelajs.co/api/v1/products').pipe(
       map(products =>
         products.map(product => ({
@@ -34,6 +22,17 @@ export class ProductService {
           )
         }))
       )
+    );
+  }
+
+  getOne(id: string){
+    return this.http.get<Product>(`https://api.escuelajs.co/api/v1/products/${id}`).pipe(
+      map(product => ({
+        ...product,
+        images: product.images.map(() =>
+          'https://picsum.photos/640/640?r=' + Math.random()
+        )
+      }))
     );
   }
 
